@@ -6,12 +6,28 @@
     <title>Template</title>
 </head>
 <body>
-    <form class="form">
-        <div class="form__location">
-            <label for="location">Place</label>
-            <input type="text" id="location">
+    <main class="weather__container">
+        
+        <div class="weather__nav-bar">
+            <form class="form">
+                <div class="form__location">
+                    <label for="location">Place: </label>
+                    <input type="text" id="location">
+                </div>
+                <button type="submit" class="form__button">Search</button>
+            </form>
         </div>
-        <button type="submit" class="form__button">Search</button>
-    </form>
+
+        <div class="weather__display">
+            <div class="image">
+                <img src="/utils/Images/sun.png" alt="">
+            </div>
+            <h2 class="temperature">22°C</h2>
+            <p class="place">London</p>
+            <p class="min">10°c</p>
+            <p class="max">30°c</p>
+        </div>
+
+    </main>
 </body>
 </html>
