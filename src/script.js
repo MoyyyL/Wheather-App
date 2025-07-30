@@ -3,39 +3,45 @@ import { gettingWeather } from "./weatherAPI";
 
 class domWorker {
     constructor() {
-        this.start = this.ownData("london")
+        this.start = this.ownData("london");
         this.startListeners = this.addListeners();
     }
 
     addListeners() {
-        const location =  document.querySelector("#location");
+        const location = document.querySelector("#location");
         const form = document.querySelector(".form");
 
         form.addEventListener("submit", (e) => {
             e.preventDefault();
             const place = location.value.trim();
             this.ownData(place);
-        })
+        });
     }
 
     async ownData(place) {
         const data = await gettingWeather(place);
-        console.log(data)
+        console.log(data);
 
-        this.renderClimate(data.address, data.icon, data.max, data.min, data.temp);
+        this.renderClimate(
+            data.address,
+            data.icon,
+            data.max,
+            data.min,
+            data.temp
+        );
     }
 
     renderClimate(address, dataIcon, maxTemp, minTemp, currentTemp) {
         const display = document.querySelector(".weather__display");
         display.innerHTML = "";
-        
+
         const icon = document.createElement("img");
         icon.classList.add("image");
         icon.src = dataIcon;
 
         const temp = document.createElement("p");
         temp.classList.add("temperature");
-        temp.textContent = `${currentTemp}°C`
+        temp.textContent = `${currentTemp}°C`;
 
         const place = document.createElement("p");
         place.classList.add("place");
